@@ -21,8 +21,8 @@ A modern, responsive interface for exploring the Metropolitan Museum of Art's co
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/supknowledge-art-collection.git
-cd supknowledge-art-collection
+git clone https://github.com/thomas1908/2WEBD.git
+cd 2WEBD
 ```
 
 2. Install dependencies:
