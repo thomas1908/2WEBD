@@ -20,30 +20,30 @@ A modern, responsive interface for exploring the Metropolitan Museum of Art's co
 ### Setup
 
 1. Clone the repository:
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/supknowledge-art-collection.git
 cd supknowledge-art-collection
-\`\`\`
+```
 
 2. Install dependencies:
-\`\`\`bash
+```bash
 npm install
 # or
 yarn install
-\`\`\`
+```
 
 3. Start the development server:
-\`\`\`bash
+```bash
 npm start
 # or
 yarn start
-\`\`\`
+```
 
 4. Open your browser and navigate to `http://localhost:3000`
 
 ## Project Structure
 
-\`\`\`
+```
 src/
 ├── components/       # Reusable UI components
 ├── context/          # React context for state management
@@ -51,7 +51,7 @@ src/
 ├── App.js            # Main application component
 ├── index.js          # Entry point
 └── ...
-\`\`\`
+```
 
 ## Technologies Used
 
