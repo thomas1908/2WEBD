@@ -65,7 +65,3 @@ src/
 
 This project uses the Metropolitan Museum of Art Collection API:
 - API Documentation: https://metmuseum.github.io/
-
-## License
-
-This project is created for educational purposes as part of a SupKnowledge assignment.

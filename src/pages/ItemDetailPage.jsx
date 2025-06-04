@@ -106,7 +106,6 @@ const ItemDetailPage = () => {
       if (navigator.share) {
         await navigator.share(shareData)
       } else {
-        // Fallback: copier l'URL dans le presse-papiers
         await navigator.clipboard.writeText(window.location.href)
         alert('Lien copié dans le presse-papiers!')
       }

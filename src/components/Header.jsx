@@ -21,13 +21,11 @@ const Header = () => {
     e.preventDefault()
     if (!searchQuery.trim()) return
 
-    // Redirection immédiate vers la page de recherche
     setIsLoading(true)
     setCurrentSearchQuery(searchQuery)
     navigate(`/search?q=${encodeURIComponent(searchQuery)}`)
     
     try {
-      // First, search for object IDs
       const searchResponse = await fetch(
         `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${encodeURIComponent(searchQuery)}`,
       )
@@ -37,14 +35,12 @@ const Header = () => {
         // Stocker tous les IDs pour le chargement infini
         setAllObjectIds(searchData.objectIDs)
         
-        // Limit to first 20 results for performance
         const limitedIds = searchData.objectIDs.slice(0, 20)
 
-        // Fetch details for each object
         const objectPromises = limitedIds.map((id) =>
           fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
             .then((res) => res.json())
-            .catch(() => null) // Gérer les erreurs individuelles
+            .catch(() => null)
         )
 
         const objects = await Promise.all(objectPromises)

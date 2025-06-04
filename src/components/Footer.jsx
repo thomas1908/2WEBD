@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Palette, ExternalLink, Heart } from "lucide-react"
+import { Palette, ExternalLink } from "lucide-react"
 
 const Footer = () => {
   return (
@@ -68,12 +68,6 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center text-slate-400 mb-4 md:mb-0">
               <span>&copy; {new Date().getFullYear()} SupKnowledge. Tous droits réservés.</span>
-            </div>
-            
-            <div className="flex items-center text-slate-400">
-              <span>Fait avec</span>
-              <Heart className="w-4 h-4 mx-2 text-red-400 animate-pulse" />
-              <span>pour l'art et la culture</span>
             </div>
           </div>
         </div>

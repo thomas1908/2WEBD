@@ -36,7 +36,6 @@ const AdvancedSearchPage = () => {
   const [departments, setDepartments] = useState([])
   const [isLoadingDepartments, setIsLoadingDepartments] = useState(false)
 
-  // Fetch departments on component mount
   useEffect(() => {
     const fetchDepartments = async () => {
       setIsLoadingDepartments(true)
@@ -82,10 +81,8 @@ const AdvancedSearchPage = () => {
     setCurrentSearchQuery(searchParams.q || "recherche avancée")
 
     try {
-      // Build the query URL
       let queryUrl = "https://collectionapi.metmuseum.org/public/collection/v1/search?"
 
-      // Add search parameters
       const params = new URLSearchParams()
 
       if (searchParams.q) {
@@ -124,28 +121,22 @@ const AdvancedSearchPage = () => {
         params.append("tags", searchParams.tags)
       }
 
-      // If no search parameters, use a default search
       if (params.toString() === "") {
         params.append("hasImages", "true")
       }
 
       queryUrl += params.toString()
 
-      // Navigate immediately to search page
       navigate(`/search?${params.toString()}`)
 
-      // Fetch search results
       const searchResponse = await fetch(queryUrl)
       const searchData = await searchResponse.json()
 
       if (searchData.objectIDs && searchData.objectIDs.length > 0) {
-        // Store all IDs for infinite loading
         setAllObjectIds(searchData.objectIDs)
         
-        // Limit to first 20 results for performance
         const limitedIds = searchData.objectIDs.slice(0, 20)
 
-        // Fetch details for each object
         const objectPromises = limitedIds.map((id) =>
           fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
             .then((res) => res.json())
@@ -208,7 +199,7 @@ const AdvancedSearchPage = () => {
             </p>
           </div>
 
-          {/* Popular Searches */}
+          {/* Recherches populaires */}
           <div className="bg-white rounded-3xl shadow-lg p-6 mb-8 border border-slate-200">
             <h3 className="text-lg font-semibold text-slate-800 mb-4">Recherches populaires</h3>
             <div className="flex flex-wrap gap-3">
@@ -225,11 +216,11 @@ const AdvancedSearchPage = () => {
             </div>
           </div>
 
-          {/* Search Form */}
+          {/* Formulaire de recherche */}
           <div className="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
             <form onSubmit={handleSubmit} className="p-8">
               
-              {/* Search Query Section */}
+              {/* Section terme de recherche */}
               <div className="mb-8">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="p-2 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl">
@@ -252,10 +243,10 @@ const AdvancedSearchPage = () => {
                 </div>
               </div>
 
-              {/* Filters Grid */}
+              {/* Grille des filtres */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                {/* Department */}
+                {/* Département */}
                 <div>
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="p-2 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl">
@@ -282,7 +273,7 @@ const AdvancedSearchPage = () => {
                   </select>
                 </div>
 
-                {/* Date Range */}
+                {/* Période */}
                 <div>
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="p-2 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl">
@@ -312,7 +303,7 @@ const AdvancedSearchPage = () => {
                   </div>
                 </div>
 
-                {/* Medium */}
+                {/* Technique */}
                 <div>
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="p-2 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl">
@@ -333,7 +324,7 @@ const AdvancedSearchPage = () => {
                   />
                 </div>
 
-                {/* Geographic Location */}
+                {/* Localisation géographique */}
                 <div>
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="p-2 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl">
@@ -355,7 +346,7 @@ const AdvancedSearchPage = () => {
                 </div>
               </div>
 
-              {/* Tags */}
+              {/* Mots-clés */}
               <div className="mt-8">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="p-2 bg-gradient-to-br from-orange-100 to-red-100 rounded-xl">
@@ -446,7 +437,7 @@ const AdvancedSearchPage = () => {
             </form>
           </div>
 
-          {/* Tips Section */}
+          {/* Astuces section */}
           <div className="mt-8 bg-gradient-to-r from-violet-500 to-purple-600 rounded-3xl p-8 text-white">
             <h3 className="text-xl font-bold mb-4">💡 Conseils de recherche</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">

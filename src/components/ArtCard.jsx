@@ -7,10 +7,9 @@ const ArtCard = ({ item }) => {
   const [imageError, setImageError] = useState(false)
   const [isFavorited, setIsFavorited] = useState(false)
   
-  // Handle missing image
+  // Gérer l'image manquante
   const imageUrl = item.primaryImageSmall || item.primaryImage || "/placeholder.svg?height=300&width=300"
 
-  // Vérifier si l'item est en favoris au chargement
   useEffect(() => {
     if (item.objectID) {
       const favorites = JSON.parse(localStorage.getItem('metFavorites') || '[]')
@@ -20,8 +19,8 @@ const ArtCard = ({ item }) => {
 
   // Gérer les favoris
   const handleFavoriteClick = (e) => {
-    e.preventDefault() // Empêcher la navigation
-    e.stopPropagation() // Arrêter la propagation de l'événement
+    e.preventDefault()
+    e.stopPropagation()
     
     const favorites = JSON.parse(localStorage.getItem('metFavorites') || '[]')
     const objectIdStr = item.objectID.toString()
@@ -41,8 +40,8 @@ const ArtCard = ({ item }) => {
 
   // Gérer le partage
   const handleShareClick = async (e) => {
-    e.preventDefault() // Empêcher la navigation
-    e.stopPropagation() // Arrêter la propagation de l'événement
+    e.preventDefault()
+    e.stopPropagation()
     
     const shareData = {
       title: item.title || 'Œuvre d\'art du MET',
@@ -54,7 +53,6 @@ const ArtCard = ({ item }) => {
       if (navigator.share) {
         await navigator.share(shareData)
       } else {
-        // Fallback: copier l'URL dans le presse-papiers
         await navigator.clipboard.writeText(shareData.url)
         alert('Lien copié dans le presse-papiers!')
       }

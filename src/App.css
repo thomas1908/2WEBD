@@ -1,11 +1,8 @@
-/* Styles personnalisés pour l'application SupKnowledge Art Collection */
-
 .App {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
-/* Animations douces pour les transitions de page */
 .page-enter {
   opacity: 0;
   transform: translateY(20px);
@@ -28,7 +25,6 @@
   transition: opacity 300ms ease-in, transform 300ms ease-in;
 }
 
-/* Styles pour les cartes avec effet glassmorphism */
 .glass-card {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
@@ -36,7 +32,6 @@
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
-/* Effet de brillance pour les boutons */
 .btn-shimmer {
   position: relative;
   overflow: hidden;
@@ -62,7 +57,6 @@
   left: 100%;
 }
 
-/* Styles pour les éléments de chargement */
 .skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
@@ -78,7 +72,6 @@
   }
 }
 
-/* Amélioration de la typographie */
 .heading-gradient {
   background: linear-gradient(135deg, #8b5cf6, #a855f7, #6366f1);
   -webkit-background-clip: text;
@@ -86,7 +79,6 @@
   background-clip: text;
 }
 
-/* Styles pour les tooltips personnalisés */
 .tooltip {
   position: relative;
 }
@@ -112,14 +104,12 @@
   opacity: 1;
 }
 
-/* Amélioration des états de focus pour l'accessibilité */
 .focus-visible:focus {
   outline: 2px solid #8b5cf6;
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
 }
 
-/* Animation pour les éléments qui apparaissent */
 .fade-in {
   animation: fadeIn 0.6s ease-out;
 }
@@ -135,7 +125,6 @@
   }
 }
 
-/* Styles responsifs améliorés */
 @media (max-width: 768px) {
   .mobile-padding {
     padding-left: 1rem;
@@ -147,7 +136,6 @@
   }
 }
 
-/* Optimisations de performance */
 .will-change-transform {
   will-change: transform;
 }

@@ -9,7 +9,6 @@ const SearchResultsPage = () => {
   const { searchResults, isLoading, isLoadingMore, loadMoreResults } = useSearch()
   const location = useLocation()
   
-  // Extraire la requête de recherche depuis l'URL
   const searchParams = new URLSearchParams(location.search)
   const searchQuery = searchParams.get('q') || ''
 
@@ -28,7 +27,6 @@ const SearchResultsPage = () => {
 
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement
     
-    // Si on est à 200px du bas de la page
     if (scrollTop + clientHeight >= scrollHeight - 200) {
       loadMoreResults()
     }
@@ -39,7 +37,6 @@ const SearchResultsPage = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
-  // Calculer s'il y a plus de résultats à charger
   const hasMoreResults = searchResults.displayed < searchResults.total
 
   if (isLoading) {
@@ -74,7 +71,7 @@ const SearchResultsPage = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-7xl mx-auto">
           
-          {/* En-tête des résultats */}
+          {/* Header des résultats */}
           <div className="bg-white rounded-3xl shadow-lg p-8 mb-8 border border-slate-200">
             <div className="flex items-center space-x-4 mb-4">
               <div className="p-3 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl shadow-lg">

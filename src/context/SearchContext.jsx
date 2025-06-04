@@ -33,7 +33,7 @@ export const SearchProvider = ({ children }) => {
       const objectPromises = idsToLoad.map((id) =>
         fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)
           .then((res) => res.json())
-          .catch(() => null) // Gérer les erreurs individuelles
+          .catch(() => null) 
       )
 
       const newObjects = await Promise.all(objectPromises)

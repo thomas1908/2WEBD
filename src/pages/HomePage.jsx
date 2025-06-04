@@ -15,9 +15,6 @@ const HomePage = () => {
     const fetchHighlights = async () => {
       setIsLoading(true)
       try {
-        // The MET API doesn't have a direct endpoint for highlights,
-        // so we'll use a curated list of object IDs that are considered highlights
-        // In a real application, this would come from a dedicated API endpoint
         const highlightIds = [
           436535, // Van Gogh's Self-Portrait with a Straw Hat
           459088, // Monet's Bridge over a Pond of Water Lilies
@@ -41,7 +38,7 @@ const HomePage = () => {
         )
 
         const objects = await Promise.all(objectPromises)
-        setHighlights(objects.filter((obj) => obj.primaryImage)) // Filter out objects without images
+        setHighlights(objects.filter((obj) => obj.primaryImage))
       } catch (error) {
         console.error("Error fetching highlights:", error)
         setError("Failed to load highlighted artworks. Please try again later.")
@@ -105,13 +102,13 @@ const HomePage = () => {
           </div>
         </div>
         
-        {/* Floating Elements */}
+        {/* Elements flottants */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-violet-300 to-purple-300 rounded-full opacity-20 animate-bounce"></div>
         <div className="absolute bottom-20 right-10 w-16 h-16 bg-gradient-to-br from-purple-300 to-indigo-300 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-gradient-to-br from-indigo-300 to-violet-300 rounded-full opacity-20 animate-ping"></div>
       </section>
 
-      {/* Stats Section */}
+      {/* Section des stats */}
       <section className="py-16 bg-white/50 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -128,7 +125,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Highlights Section */}
+      {/* Section oeuvre highlight */}
       <section id="highlights-section" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
